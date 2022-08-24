@@ -117,14 +117,27 @@ public class MainActivity extends AppCompatActivity {
         this.square_root.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                preview.setText(preview.getText() + "^1/2");
+                if (preview.getText().length() > 0) {
+                    result.setText("√(" + preview.getText().toString() + ")=");
+                    preview.setText(""+Math.sqrt(Double.parseDouble(preview.getText().toString())));
+
+                    aux = true;
+                }
+
             }
         });
 
         this.pow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                preview.setText(preview.getText() + "^(2)");
+                //preview.setText(preview.getText() + "^(2)");
+                if (preview.getText().length() > 0) {
+                    result.setText( preview.getText().toString() + "^(2)=");
+                    preview.setText(""+Math.pow(Double.parseDouble(preview.getText().toString()),2));
+
+                    aux = true;
+                }
+
             }
         });
         this.one_about.setOnClickListener(new View.OnClickListener() {
@@ -341,7 +354,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-
             }
         });
         this.multiply_sub.setOnClickListener(new View.OnClickListener() {
@@ -382,7 +394,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (result.getText().length() > 0) {
+                if (result.getText().length() > 0 || preview.getText().length() > 0) {
                     if (!result.getText().toString().contains("=")) {
                         result.setText(result.getText() + "" + preview.getText());
                         preview.setText(cal(result.getText().toString()).toString());
