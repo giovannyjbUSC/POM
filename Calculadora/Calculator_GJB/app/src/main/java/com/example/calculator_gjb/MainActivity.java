@@ -333,7 +333,10 @@ public class MainActivity extends AppCompatActivity {
         this.multiply_sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                preview.setText(preview.getText() + "+/-");
+                if (preview.getText().charAt(0) != '-'){
+                    preview.setText( "-"+preview.getText());
+                }
+
             }
         });
 
