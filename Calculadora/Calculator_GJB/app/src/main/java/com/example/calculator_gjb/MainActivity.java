@@ -150,8 +150,15 @@ public class MainActivity extends AppCompatActivity {
         this.split.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                result.setText(cal(result.getText().toString() + preview.getText().toString()).toString() + "/");
-                preview.setText(last_number(result.getText().toString()));
+
+                if (!result.getText().toString().contains("=")) {
+                    result.setText(cal(result.getText().toString() + preview.getText().toString()).toString() + "/");
+                    preview.setText(last_number(result.getText().toString()));
+                } else {
+                    result.setText(preview.getText().toString() + "/");
+
+                }
+
                 aux = true;
             }
         });
@@ -201,8 +208,15 @@ public class MainActivity extends AppCompatActivity {
         this.multiplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                result.setText(cal(result.getText().toString() + preview.getText().toString()).toString() + "*");
-                preview.setText(last_number(result.getText().toString()));
+
+                if (!result.getText().toString().contains("=")) {
+                    result.setText(cal(result.getText().toString() + preview.getText().toString()).toString() + "*");
+                    preview.setText(last_number(result.getText().toString()));
+
+                } else {
+                    result.setText(preview.getText().toString() + "*");
+
+                }
                 aux = true;
             }
         });
@@ -249,8 +263,14 @@ public class MainActivity extends AppCompatActivity {
         this.subtraction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                result.setText(cal(result.getText().toString() + preview.getText().toString()).toString() + "-");
-                preview.setText(last_number(result.getText().toString()));
+                if (!result.getText().toString().contains("=")) {
+                    result.setText(cal(result.getText().toString() + preview.getText().toString()).toString() + "-");
+                    preview.setText(last_number(result.getText().toString()));
+                } else {
+                    result.setText(preview.getText().toString() + "-");
+
+                }
+
                 aux = true;
             }
         });
@@ -296,8 +316,15 @@ public class MainActivity extends AppCompatActivity {
         this.add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                result.setText(cal(result.getText().toString() + preview.getText().toString()).toString() + "+");
-                preview.setText(last_number(result.getText().toString()));
+
+                if (!result.getText().toString().contains("=")) {
+                    result.setText(cal(result.getText().toString() + preview.getText().toString()).toString() + "+");
+                    preview.setText(last_number(result.getText().toString()));
+
+                } else {
+                    result.setText(preview.getText().toString() + "+");
+
+                }
                 aux = true;
 
 
@@ -333,9 +360,16 @@ public class MainActivity extends AppCompatActivity {
         this.equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                result.setText(result.getText() + "" + preview.getText());
-                preview.setText(cal(result.getText().toString()).toString());
-                result.setText(result.getText().toString() + "=");
+
+                if (!result.getText().toString().contains("=")) {
+                    result.setText(result.getText() + "" + preview.getText());
+                    preview.setText(cal(result.getText().toString()).toString());
+                    result.setText(result.getText().toString() + "=");
+                } else {
+
+                    result.setText(result.getText() + "" + preview.getText());
+                    preview.setText(cal(result.getText().toString()).toString());
+                }
                 aux = true;
             }
         });
