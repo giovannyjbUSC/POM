@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class UserController {
 
@@ -22,9 +24,10 @@ public class UserController {
     @PostMapping("/login")
     public  ResponseEntity<?> login (@RequestParam(value = "email") String email,@RequestParam(value = "password")  String password){
 
+        List<Empleado> empleado =  service.query_login(email,password);
 
 
-       return service.query_login(email,password).size()>0 ?  ResponseEntity.ok(true): ResponseEntity.ok(false);
+       return empleado.size()>0 ?  ResponseEntity.ok(empleado.get(0)): ResponseEntity.ok(false);
     }
 
 
