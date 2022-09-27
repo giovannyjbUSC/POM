@@ -3,6 +3,7 @@ package com.usc.crud.service;
 import com.usc.crud.model.Empleado;
 import com.usc.crud.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,7 +41,13 @@ public class UserService {
         else{
             msj = "usuario no encontradpo";
         }
-
-return msj;
+        return msj;
     }
+
+
+    public List<Empleado> query_login(String email, String password){
+
+        return  repository.login(email,password);
+    }
+
 }

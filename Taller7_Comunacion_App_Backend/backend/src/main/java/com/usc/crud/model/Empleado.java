@@ -26,7 +26,7 @@ public class Empleado {
     }
 
     public String getUser() {
-        return nombre;
+        return this.nombre;
     }
 
     public void setUser(String user) {

@@ -16,8 +16,15 @@ public class UserController {
     @GetMapping("/consultar/{id}")
     public ResponseEntity<?> filtrar(@PathVariable Empleado empleado){
 
-        return ResponseEntity.ok(service.finByUser(empleado));
+        return ResponseEntity.ok( service.finByUser(empleado));
 
+    }
+    @PostMapping("/login")
+    public  ResponseEntity<?> login (@RequestParam(value = "email") String email,@RequestParam(value = "password")  String password){
+
+
+
+       return service.query_login(email,password).size()>0 ?  ResponseEntity.ok(true): ResponseEntity.ok(false);
     }
 
 
