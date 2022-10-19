@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Formulario_GJB</string>
+    <string name="ercus">ERCUS</string>
+    <string name="asi_de_simple">¡Asi de simple!</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="correo_electronico">Correo electronico</string>
+</resources>
